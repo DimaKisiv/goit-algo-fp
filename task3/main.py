@@ -9,18 +9,14 @@ def dijkstra(graph):
 
     while min_heap:
         current_distance, current_node = heapq.heappop(min_heap)
-
         if current_node in visited:
             continue
         visited.add(current_node)
-
         for neighbor, weight in graph[current_node].items():
             distance = current_distance + weight
-
             if distance < shortest_paths[neighbor]:
                 shortest_paths[neighbor] = distance
                 heapq.heappush(min_heap, (distance, neighbor))
-
     return shortest_paths
 
 def main():
